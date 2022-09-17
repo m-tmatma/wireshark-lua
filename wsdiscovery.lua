@@ -1,4 +1,9 @@
 -------------------------------------------------------------------------------------------
+-- This is a wireshark dissector for WS-Discovery.
+--
+-- See http://docs.oasis-open.org/ws-dd/discovery/1.1/wsdd-discovery-1.1-spec.html
+--
+-------------------------------------------------------------------------------------------
 -- See https://wiki.wireshark.org/Lua/Examples
 --
 -- How to install this plugin on Windows

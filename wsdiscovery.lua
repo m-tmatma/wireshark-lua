@@ -1,3 +1,12 @@
+-------------------------------------------------------------------------------------------
+-- See https://wiki.wireshark.org/Lua/Examples
+--
+-- How to install this plugin on Windows
+--     mkdir %APPDATA%\Wireshark\plugins
+--     copy this file to %APPDATA%\Wireshark\plugins
+--
+-- See https://www.wireshark.org/docs/wsug_html_chunked/ChPluginFolders.html
+-------------------------------------------------------------------------------------------
 WSDiscovery_proto = Proto("WSDiscovery","WSDiscovery","WSDiscovery protocol")
 
 function WSDiscovery_proto.dissector(buffer,pinfo,tree)

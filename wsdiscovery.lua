@@ -15,8 +15,16 @@
 WSDiscovery_proto = Proto("WSDiscovery","WSDiscovery","WSDiscovery protocol")
 
 function WSDiscovery_proto.dissector(buffer,pinfo,tree)
+    local soapString = buffer():string(ENC_UTF_8)
+    local action = soapString:match("http://schemas.xmlsoap.org/ws/2005/04/discovery/(.*)</wsa:Action>")
+
+    if action == nil then
+        action = 'unknown'
+    end
+
     pinfo.cols.protocol = "WSDiscovery"
-    pinfo.cols.info = "WSDiscovery"
+    pinfo.cols.info:set("WSDiscovery: " .. action)
+
     xml_dissector = Dissector.get("xml")
     xml_dissector:call(buffer,pinfo,tree)
 end

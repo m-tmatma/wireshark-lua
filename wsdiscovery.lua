@@ -16,7 +16,7 @@ WSDiscovery_proto = Proto("WSDiscovery","WSDiscovery","WSDiscovery protocol")
 
 function WSDiscovery_proto.dissector(buffer,pinfo,tree)
     local soapString = buffer():string(ENC_UTF_8)
-    local action = soapString:match("http://schemas.xmlsoap.org/ws/2005/04/discovery/(.*)</wsa:Action>")
+    local action, tag = string.match(soapString, "http://schemas.xmlsoap.org/ws/2005/04/discovery/(%w*)</([^>]+)>")
 
     if action == nil then
         action = 'unknown'

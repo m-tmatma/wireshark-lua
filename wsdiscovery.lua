@@ -27,6 +27,9 @@ function WSDiscovery_proto.dissector(buffer,pinfo,tree)
 
     xml_dissector = Dissector.get("xml")
     xml_dissector:call(buffer,pinfo,tree)
+    
+    local d = require('debug')
+    print(d.traceback())
 end
 
 DissectorTable.get("udp.port"):add(3702, WSDiscovery_proto);
